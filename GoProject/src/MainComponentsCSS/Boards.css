@@ -1,0 +1,265 @@
+.boards-container {
+  flex: 1;
+  padding: 30px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+.boards-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.create-board {
+  display: flex;
+  gap: 10px;
+}
+
+.create-board input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 250px;
+}
+
+.create-board button {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.create-board button:hover {
+  background: #0056b3;
+}
+
+.boards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.board-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: block;
+  transition: box-shadow 0.2s;
+}
+
+.board-card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.board-info {
+  cursor: pointer;
+  flex: 1;
+}
+
+.board-info h3 {
+  margin: 0 0 5px 0;
+  color: #333;
+  font-size: 18px;
+}
+
+.task-count {
+  color: #666;
+  font-size: 13px;
+}
+
+.board-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.board-actions button {
+  padding: 5px 10px;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.board-actions button:hover {
+  background: #f0f0f0;
+}
+
+.board-edit {
+  margin-bottom: 15px;
+}
+
+.board-edit input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 10px;
+  width: 70%;
+}
+
+.board-edit button {
+  padding: 8px 12px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.board-edit button:hover {
+  background: #218838;
+}
+
+.board-tasks {
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+.board-task {
+  background: #f8f9fa;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+  border-left: 3px solid #007bff;
+}
+
+.board-task:last-child {
+  margin-bottom: 0;
+}
+
+.more-tasks {
+  color: #666;
+  font-size: 13px;
+  margin-top: 8px;
+  font-style: italic;
+  text-align: center;
+  padding: 5px;
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+/* Модалки */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #333;
+  font-size: 22px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #666;
+  line-height: 1;
+  padding: 0 8px;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.modal-tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-task {
+  padding: 15px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: white;
+}
+
+.modal-task:hover {
+  background: #f8f9fa;
+  border-color: #007bff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.modal-task h4 {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.task-preview {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.no-tasks {
+  text-align: center;
+  color: #999;
+  padding: 40px 20px;
+  font-size: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.task-details {
+  max-width: 450px;
+}
+
+.task-full-description {
+  padding: 20px 0;
+  line-height: 1.6;
+  color: #333;
+  font-size: 15px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}

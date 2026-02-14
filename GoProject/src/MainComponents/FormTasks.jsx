@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../MainComponentsCSS/FormTasks.css';
 
-const FormTasks = () => {
+const FormTasks = ({ onDragStart }) => {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState({ text: '', description: '' });
   const [editingId, setEditingId] = useState(null);
@@ -14,7 +14,8 @@ const FormTasks = () => {
     const task = {
       id: Date.now(),
       text: newTask.text,
-      description: newTask.description
+      description: newTask.description,
+      boardId: null // задача пока без доски
     };
     setTasks([...tasks, task]);
     setNewTask({ text: '', description: '' });
@@ -57,7 +58,16 @@ const FormTasks = () => {
 
       <div className="tasks-list">
         {tasks.map(task => (
-          <div key={task.id} className="task-item">
+          <div 
+            key={task.id} 
+            className="task-item"
+            draggable
+            onDragStart={(e) => {
+              e.dataTransfer.setData('taskId', task.id);
+              e.dataTransfer.setData('taskText', task.text);
+              e.dataTransfer.setData('taskDesc', task.description);
+            }}
+          >
             {editingId === task.id ? (
               <>
                 <input
